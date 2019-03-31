@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf8">
+		<meta lang="pt-br">
+		<title>Memory Game</title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		<link href="https://fonts.googleapis.com/css?family=Germania+One" rel="stylesheet">
+		<script type="text/javascript" src="functions.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	</head>
+	
+	<body>
+		<div class="menu">
+				<a href="index.html">
+					<div class="logo">
+						<div class="img-logo">
+							<img src="images/logo.png">
+						</div>
+							
+						<div class="txt-logo">
+							<p>Memory<br> &nbsp;&nbsp;&nbsp;&nbsp;Game</p>
+						</div>
+					</div>
+				</a>
+					
+					
+					<div class="item-menu">
+						<center><p>About</p></center>
+					</div>
+	
+					<div class="item-menu" onmouseout="fecharDropDownTraducao()" onmouseover="abrirDropDownTraducao()">
+						<center><p>Languages</p></center>
+					</div>
+	
+				<div class="drop-down" onmouseout="fecharDropDownTraducao()" onmouseover="abrirDropDownTraducao()">
+					<div class="language-line" onclick="traduzirPortugues()">
+						<p><center>Português</center></p>
+					</div>
+					<div class="language-line" onclick="traduzirIngles()">
+						<p><center>English</center></p>
+					</div>
+				</div>
+			</div>
+
+		<div class="content">
+			
+			<div class="play">
+				<div class="all-menu-play">
+					<div class="menu-play" onclick="abrirFases()">
+						<h2>Play</h2>
+					</div>	
+
+					<div class="menu-play">
+						<h2> About</h2>		
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="fases">
+			<div class="fases-content">
+				<div class="title-fases">
+					<h1><center>Complete the phases to unlock the others</center></h1>
+				</div>
+
+				<center>
+					<div class="close-icon" onclick="fecharMenu()">
+						<img src="images/close.png">
+					</div>
+				</center>
+
+				<div class="fase-icon fase1">
+					<center>
+						<div class="content-fase">
+							<div class="img-play info-img">
+								<img src="images/info.png">
+							</div>
+							<p>#1</p>
+							<div class="img-play">
+								<img src="images/play.png" onclick="abrirPrimeiraFase(0)">
+							</div>
+						</div>
+					</center>
+				</div>
+				
+				<div class="fase-icon fase2">
+				<center>
+						<div class="content-fase">
+							<div class="img-play info-img">
+								<img src="images/info.png">
+							</div>
+							<p>#2</p>
+							<div class="img-play">
+								<img src="images/block.png">
+							</div>
+						</div>
+					</center>
+				</div>
+				
+				<div class="fase-icon fase3">
+					<center>
+						<div class="content-fase">
+							<div class="img-play info-img">
+								<img src="images/info.png">
+							</div>
+							<p>#3</p>
+							<div class="img-play">
+								<img src="images/block.png">
+							</div>
+						</div>
+					</center>
+				</div>
+				
+				<div class="fase-icon fase4">
+					<center>
+						<div class="content-fase">
+							<div class="img-play info-img">
+								<img src="images/info.png">
+							</div>
+							<p>#4</p>
+							<div class="img-play">
+								<img src="images/block.png">
+							</div>
+						</div>
+					</center>
+				</div>
+				
+				<div class="fase-icon fase5">
+					<center>
+						<div class="content-fase">
+							<div class="img-play info-img">
+								<img src="images/info.png">
+							</div>
+							<p>#5</p>
+							<div class="img-play">
+								<img src="images/block.png">
+							</div>
+						</div>
+					</center>
+				</div>
+			</div>
+		</div>
+
+		<div class="layout-1-fase">
+			<div class="init-game-1">
+				<div class="modal-start-game">
+					<center>
+						<h1>#1 Clique para iniciar o game</h1>
+						<button onclick="iniciarJogo(0, 'item-game')">Start</button><br>
+						<button id="button-help">Ajuda</button>
+					</center>
+				</div>
+			</div>
+
+
+			<div class="confirm-close">
+				<h1>Deseja mesmo sair? <br>Todo seu progresso será perdido!</h1>
+				<center>
+					<button id="btn1" onclick="voltarMenuPrincipal('layout-1-fase')">Sair</button>
+					&nbsp;&nbsp;&nbsp;
+					<button id="btn2" onclick="fecharSaidaFase(0)">Voltar</button></center>>
+			</div>
+
+			<div class="close-icon close-fase" onclick="confirmarSaidaFase(0)">
+				<img src="images/close.png">
+			</div>
+
+			<div class="content-game">
+				<div class="item-game" onclick="revelarNumero(0)"></div>
+				<div class="item-game" onclick="revelarNumero(1)"></div>
+				<div class="item-game" onclick="revelarNumero(2)"></div>
+				<div class="item-game" onclick="revelarNumero(3)"></div>
+				<div class="item-game" onclick="revelarNumero(4)"></div>
+				<div class="item-game" onclick="revelarNumero(5)"></div>
+				<div class="item-game" onclick="revelarNumero(6)"></div>
+				<div class="item-game" onclick="revelarNumero(7)"></div>
+				<div class="item-game" onclick="revelarNumero(8)"></div>
+				<div class="item-game" onclick="revelarNumero(9)"></div>
+				<div class="item-game" onclick="revelarNumero(10)"></div>
+				<div class="item-game" onclick="revelarNumero(11)"></div>
+				<div class="item-game" onclick="revelarNumero(12)"></div>
+				<div class="item-game" onclick="revelarNumero(13)"></div>
+				<div class="item-game" onclick="revelarNumero(14)"></div>
+				<div class="item-game" onclick="revelarNumero(15)"></div>
+			</div>>
+
+		</div>
+		<div class="layout-2-fase"></div>
+		<div class="layout-3-fase"></div>
+		<div class="layout-4-fase"></div>
+		<div class="layout-5-fase"></div>
+
+		
+	</body>
+</html>
