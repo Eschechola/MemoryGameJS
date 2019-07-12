@@ -145,43 +145,58 @@
 			<div class="init-game-1">
 				<div class="modal-start-game">
 					<center>
-						<h1>#1 Clique para iniciar o game</h1>
-						<button onclick="iniciarJogo(0, 'item-game')">Start</button><br>
-						<button id="button-help">Ajuda</button>
+						<h1>#1 Click here to start the game</h1>
+						<button onclick="iniciarJogo(0, 'item-game', 64)">Start</button><br>
+						<button id="button-help">About</button>
 					</center>
 				</div>
 			</div>
 
 
 			<div class="confirm-close">
-				<h1>Deseja mesmo sair? <br>Todo seu progresso será perdido!</h1>
+				<h1>Do you really want to leave?<br>All your progress will be lost</h1>
 				<center>
-					<button id="btn1" onclick="voltarMenuPrincipal('layout-1-fase')">Sair</button>
+					<button id="btn1" onclick="voltarMenuPrincipal('layout-1-fase')">Leave</button>
 					&nbsp;&nbsp;&nbsp;
-					<button id="btn2" onclick="fecharSaidaFase(0)">Voltar</button></center>>
+					<button id="btn2" onclick="fecharSaidaFase(0)">Back</button>
+				</center>
+			</div>
+
+			<div class="winner">
+				<center><h1>Congrats! You're a winner!!</h1>
+				<button onclick="voltarMenuPrincipal('layout-1-fase')">Back to the start page</button></center>
+			</div>
+
+			<div class="loser">
+				<center><h1>A fury of time is unreachable! Try again to win this beast</h1>
+				<button onclick="voltarMenuPrincipal('layout-1-fase')">Back to the start page</button></center>
 			</div>
 
 			<div class="close-icon close-fase" onclick="confirmarSaidaFase(0)">
 				<img src="images/close.png">
 			</div>
 
+			<div class="timer">
+				<center><p id=time>00</p></center>
+			</div>
+
 			<div class="content-game">
-				<div class="item-game" onclick="revelarNumero(0)"></div>
-				<div class="item-game" onclick="revelarNumero(1)"></div>
-				<div class="item-game" onclick="revelarNumero(2)"></div>
-				<div class="item-game" onclick="revelarNumero(3)"></div>
-				<div class="item-game" onclick="revelarNumero(4)"></div>
-				<div class="item-game" onclick="revelarNumero(5)"></div>
-				<div class="item-game" onclick="revelarNumero(6)"></div>
-				<div class="item-game" onclick="revelarNumero(7)"></div>
-				<div class="item-game" onclick="revelarNumero(8)"></div>
-				<div class="item-game" onclick="revelarNumero(9)"></div>
-				<div class="item-game" onclick="revelarNumero(10)"></div>
-				<div class="item-game" onclick="revelarNumero(11)"></div>
-				<div class="item-game" onclick="revelarNumero(12)"></div>
-				<div class="item-game" onclick="revelarNumero(13)"></div>
-				<div class="item-game" onclick="revelarNumero(14)"></div>
-				<div class="item-game" onclick="revelarNumero(15)"></div>
+				<div class="item-game" onclick="revelarNumero(0,0)"></div>
+				<div class="item-game" onclick="revelarNumero(1,0)"></div>
+				<div class="item-game" onclick="revelarNumero(2,0)"></div>
+				<div class="item-game" onclick="revelarNumero(3,0)"></div>
+				<div class="item-game" onclick="revelarNumero(4,0)"></div>
+				<div class="item-game" onclick="revelarNumero(5,0)"></div>
+				<div class="item-game" onclick="revelarNumero(6,0)"></div>
+				<div class="item-game" onclick="revelarNumero(7,0)"></div>
+				<div class="item-game" onclick="revelarNumero(8,0)"></div>
+				<div class="item-game" onclick="revelarNumero(9,0)"></div>
+				<div class="item-game" onclick="revelarNumero(10,0)"></div>
+				<div class="item-game" onclick="revelarNumero(11,0)"></div>
+				<div class="item-game" onclick="revelarNumero(12,0)"></div>
+				<div class="item-game" onclick="revelarNumero(13,0)"></div>
+				<div class="item-game" onclick="revelarNumero(14,0)"></div>
+				<div class="item-game" onclick="revelarNumero(15,0)"></div>
 			</div>>
 
 		</div>

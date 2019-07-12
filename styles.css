@@ -366,7 +366,7 @@
 
 .content-game{
 	width: 50%;
-	margin-left: 25%;
+	margin-left: 10%;
 	height: 750px;
 	float: left;
 	position: relative;
@@ -408,7 +408,7 @@
 	position: fixed;
 	display: block;
 	z-index: 10;
-	transition: 1s;
+	transition: 4s;
 }
 
 .init-game-1 .modal-start-game h1{
@@ -482,11 +482,130 @@
 	}
 }
 
-@keyframes testedemerda{
-	to{
-		background-color: red;
+.timer{
+	position: relative;
+	margin-top: 10%;
+	width: 200px;
+	height: 100px;
+	border: 5px solid white;
+	float: left;
+	margin-left: 5%;
+	color: white;
+	font-family: germania one;
+	font-size: 300%;
+}
+
+.timer p{
+	margin-top: 10%;
+}
+
+.winner{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(51, 51, 51, 0.95);
+	position: fixed;
+	display: none;
+	z-index: 10;
+	transition: 1s;
+}
+
+.winner h1{
+	color: rgba(0, 255, 128, 1);
+	font-size: 400%;
+	animation: descer;
+	animation-duration: 1s;
+	position: relative;
+	font-family: germania one;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+.winner button{
+	cursor: pointer;
+	font-family: germania one;
+	font-size: 300%;
+	border: 1px solid transparent;
+	background-color: #4682B4;
+	color: white;
+	height: 90px;
+	width: 450px;
+	border-radius: 10px;
+	margin-top: 5%;
+	transition: 0.5s;
+}
+
+.winner button:hover
+{
+	background-color: #36668e;
+	transition: 0.5s;
+}
+
+.loser{
+	width: 100%;
+	height: 100%;
+	background-color: rgba(51, 51, 51, 0.95);
+	position: fixed;
+	display: none;
+	z-index: 10;
+	transition: 1s;
+}
+
+.loser h1{
+	color: rgba(255, 0, 0, 1);
+	font-size: 400%;
+	animation: descer;
+	animation-duration: 1s;
+	position: relative;
+	font-family: germania one;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+}
+
+.loser button{
+	cursor: pointer;
+	font-family: germania one;
+	font-size: 300%;
+	border: 1px solid transparent;
+	background-color: #4682B4;
+	color: white;
+	height: 90px;
+	width: 450px;
+	border-radius: 10px;
+	margin-top: 5%;
+	transition: 0.5s;
+}
+
+.loser button:hover
+{
+	background-color: #36668e;
+	transition: 0.5s;
+}
+
+@media only screen and (max-device-width: 1700px) {
+    .txt-logo p{
+		font-size: 28px;
 	}
-	from{
-		background-color: blueviolet;
+
+	.item-menu p{
+		font-size: 25px;
 	}
+
+	.menu-play h2{
+		font-size: 110px;
+	}
+
+	.play{
+		margin-top: 6%;
+		height: 678px;
+	}
+
+	.all-menu-play{
+		margin-left: 50%;
+	}
+
+	.content-game{
+		margin-left: 8%;
+		height: 680px;
+	}
+
 }

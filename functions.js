@@ -56,6 +56,33 @@ function traduzirIngles(){
 }
 
 function abrirPrimeiraFase(n){
+    let quadrados = document.getElementsByClassName('content-game')[n];
+    quadrados.innerHTML = `<div class="item-game" onclick="revelarNumero(0,0)"></div>
+    <div class="item-game" onclick="revelarNumero(1,0)"></div>
+    <div class="item-game" onclick="revelarNumero(2,0)"></div>
+    <div class="item-game" onclick="revelarNumero(3,0)"></div>
+    <div class="item-game" onclick="revelarNumero(4,0)"></div>
+    <div class="item-game" onclick="revelarNumero(5,0)"></div>
+    <div class="item-game" onclick="revelarNumero(6,0)"></div>
+    <div class="item-game" onclick="revelarNumero(7,0)"></div>
+    <div class="item-game" onclick="revelarNumero(8,0)"></div>
+    <div class="item-game" onclick="revelarNumero(9,0)"></div>
+    <div class="item-game" onclick="revelarNumero(10,0)"></div>
+    <div class="item-game" onclick="revelarNumero(11,0)"></div>
+    <div class="item-game" onclick="revelarNumero(12,0)"></div>
+    <div class="item-game" onclick="revelarNumero(13,0)"></div>
+    <div class="item-game" onclick="revelarNumero(14,0)"></div>
+    <div class="item-game" onclick="revelarNumero(15,0)"></div>`;
+
+    let paginaVitoria = document.getElementsByClassName('winner')[n];
+    paginaVitoria.style.width = "0%";
+    paginaVitoria.style.display = "none";
+
+    let paginaDerrota = document.getElementsByClassName('loser')[n];
+    paginaDerrota.style.display = "none";
+    paginaDerrota.style.width = "0%";
+
+
     let fases = document.getElementsByClassName('fases')[0];
     fases.style.display = "none";
 
@@ -139,7 +166,13 @@ function gerarNumerosAleatorios(quantidadefase){
 
 let vetorPrimario = [];
 
-function iniciarJogo(numPlay, nomeClasse){
+function iniciarJogo(numPlay, nomeClasse, segundos){
+    quadrado1 = null;
+    quadrado2 = null;
+    var time = new Number;
+    time = segundos;
+    startTempo(time,numPlay);
+
     let animacaoEsconderNumero = document.getElementsByClassName('hide-block');
     vetorPrimario = [];
 
@@ -196,11 +229,16 @@ function iniciarJogo(numPlay, nomeClasse){
 
 let quadrado1 = null;
 let quadrado2 = null;
+let jogadasCertasFase1 = 0;
+let jogadasCertasFase2 = 0;
+let jogadasCertasFase3 = 0;
+let jogadasCertasFase4 = 0;
+let jogadasCertasFase5 = 0;
 
 let primeiroQuadrado = false;
 
 
-function revelarNumero(n){
+function revelarNumero(n,nFase){
     let quadrado = document.getElementsByClassName('item-game')[n];
     let numero = document.getElementsByClassName('hide-block')[n];
     numero.style.opacity = "1";
@@ -235,6 +273,12 @@ function revelarNumero(n){
             mudarNumero2.style.opacity = "1";
             mudarQuadrado1.onclick = travarIguais();
             mudarQuadrado2.onclick = travarIguais();
+            //ja carrega todas as fases de uma vez.
+            jogadasCertasFase1++;
+            jogadasCertasFase2++;
+            jogadasCertasFase3++;
+            jogadasCertasFase4++;
+            jogadasCertasFase5++;
         }
         else
         {
@@ -242,17 +286,30 @@ function revelarNumero(n){
             mudarNumero1 = document.getElementsByClassName('hide-block')[quadrado1];
             mudarQuadrado1.style.backgroundColor = "white";
             mudarNumero1.style.opacity = "0";
-
-            mudarQuadrado2 = document.getElementsByClassName('item-game')[quadrado2];
-            mudarNumero2 = document.getElementsByClassName('hide-block')[quadrado2];
-            mudarQuadrado2.style.backgroundColor = "white";
-            mudarNumero2.style.opacity = "0";
             
+            numero.style.opacity = "1";
+            quadrado.style.backgroundColor = "lightblue";
+            quadrado.style.animation = "teste";
+
+            quadrado.style.backgroundColor = "white";
+            numero.style.opacity = "0";
         }
+
         quadrado1 = null;
         quadrado2 = null;
         primeiroQuadrado = false;
     }
+
+    if(jogadasCertasFase1 == 8||jogadasCertasFase2 == 10||jogadasCertasFase3 == 10||jogadasCertasFase4 == 12||jogadasCertasFase5 == 12)
+    {
+        jogadasCertasFase1 = 0;
+        jogadasCertasFase2 = 0;
+        jogadasCertasFase3 = 0;
+        jogadasCertasFase4 = 0;
+        jogadasCertasFase5 = 0;
+        vitoria(nFase);
+    }
+
 }
 
 function travarIguais()
@@ -260,16 +317,46 @@ function travarIguais()
     //criada apenas para travar, sem utilidaade
 }
 
+var tempo = new Number;
+tempo = 00;
 
-function mostrarVetorCompletoAlert(){
-    alert(vetorPrimario);
+function startTempo(segundos, nFase)
+{
+    let d = nFase;
+    tempo = segundos;
+    cronometro(d);
 }
 
-function sleep(milliseconds) {
-    var start = new Date().getTime();
-    for (var i = 0; i < 1e7; i++) {
-      if ((new Date().getTime() - start) > milliseconds){
-        break;
-      }
+function cronometro(nFase)
+{
+    tempo--;
+    time.innerHTML = tempo;
+    if(tempo == 0)
+    {
+        derrota(nFase);
     }
+    else if(tempo >= 0)
+    {
+        setTimeout('cronometro('+nFase+')', 1000);
+    }  
+}
+
+let verificarWin = true;
+
+function derrota(nFase)
+{
+    if(verificarWin){
+        let paginaDerrota = document.getElementsByClassName('loser')[nFase];
+        paginaDerrota.style.display = "block";
+        paginaDerrota.style.width = "100%";
+    }
+}
+
+function vitoria(nFase)
+{
+    let paginaVitoria = document.getElementsByClassName('winner')[nFase];
+    paginaVitoria.style.display = "block"
+    paginaVitoria.style.width = "100%";
+    verificarWin = false;
+
 }
